@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>
+           форма авторизации
+        </title>
+        <link rel="stylesheet" href="./styles.css">
+        <script>
+            function onMainClick(){
+                console.log('main')
+                arrowFn();
+            }
+            function onCardClick(){
+                console.log('card')
+            }
+            function onMaxBtnClick(){
+                console.log('max');_
+                event.stopPropagation();
+            }
+            </script>
+    </head>
+    <body>
+        <header>шапка </header>
+        <main class="main" onclick="onMainClick()">
+            <div class="card outline" onclick="onCardClick()">
+                <h1 class="card-header">Sign in</h1>
+                <button class = "button"onclick="onMaxBtnClick(event)" id = "btn-max"> Войти через Max</button>
+                <button class = "button"> Войти через ВШЭ</button>
+                <label class="text-center">or</label>
+                <h4 class="card-header" >Использовать пароль</h4>
+                <input class="textbox" type="email" placeholder="Введите почту">
+                <input class="textbox" type="password" id="password" name="password" placeholder="Введите пароль">
+                <label>Запомнить пароль?</label>
+                <label><input type="checkbox">Использовать при след. входе</label>
+                <button>Запомнить меня</button>
+                <button>Войти</button>
+            </div>
+         </main>
+        <footer>подвал </footer>
+    </body>
+</html>
