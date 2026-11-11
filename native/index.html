@@ -1,40 +1,102 @@
-<html>
-    <head>
-        <title>
-           форма авторизации
-        </title>
-        <link rel="stylesheet" href="./styles.css">
-        <script>
-            function onMainClick(){
-                console.log('main')
-                arrowFn();
-            }
-            function onCardClick(){
-                console.log('card')
-            }
-            function onMaxBtnClick(){
-                console.log('max');_
-                event.stopPropagation();
-            }
-            </script>
-    </head>
-    <body>
-        <header>шапка </header>
-        <main class="main" onclick="onMainClick()">
-            <div class="card outline" onclick="onCardClick()">
-                <h1 class="card-header">Sign in</h1>
-                <button class = "button"onclick="onMaxBtnClick(event)" id = "btn-max"> Войти через Max</button>
-                <button class = "button"> Войти через ВШЭ</button>
-                <label class="text-center">or</label>
-                <h4 class="card-header" >Использовать пароль</h4>
-                <input class="textbox" type="email" placeholder="Введите почту">
-                <input class="textbox" type="password" id="password" name="password" placeholder="Введите пароль">
-                <label>Запомнить пароль?</label>
-                <label><input type="checkbox">Использовать при след. входе</label>
-                <button>Запомнить меня</button>
-                <button>Войти</button>
-            </div>
-         </main>
-        <footer>подвал </footer>
-    </body>
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма авторизации</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./script.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <p>Моя форма авторизации</p>
+    </header>
+    <main class="main">
+        <section class="card outline" aria-labelledby="login-title">
+            <h1 class="card-header" id="login-title">
+                Вход
+            </h1>
+            <form id="form-card">
+                <div class="social-buttons"  role="group" aria-label="Вход через другие сервисы">
+                    <button class="button social-button" type="button" id="btn-max">
+                        Войти через Max
+                    </button>
+                    <button class="button social-button" type="button" id="btn-hse">
+                        Войти через ВШЭ
+                    </button>
+                </div>
+                <div class="divider" aria-hidden="true">
+                    <span></span>
+                    <p>или</p>
+                    <span></span>
+                </div>
+                <div>
+                    <label for="email" class="visually-hidden">
+                        Электронная почта или телефон
+                    </label>
+                    <input
+                        class="textbox"
+                        type="text"
+                        id="email"
+                        name="email"
+                        placeholder="Электронная почта или телефон"
+                        autocomplete="username"
+                        required                    >
+                </div>
+                <div class="password-group">
+                    <label for="password" class="visually-hidden">
+                        Пароль
+                    </label>
+                    <input
+                        class="textbox"
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Пароль"
+                        autocomplete="current-password"
+                        minlength="8"
+                        maxlength="40"
+                        required
+                    >
+                    <button  aria-pressed="false"
+                        class="show-password"
+                        type="button"
+                        id="show-password"
+                        aria-controls="password"                       >
+                        Показать
+                    </button>
+                </div>
+                <a class="forgot-password" href="#">Забыли пароль?</a>
+                <label class="checkbox-label" for="remember">
+                    <input
+                        type="checkbox"
+                        id="remember"
+                        name="remember"
+                    >
+                    Запомнить меня
+                </label>
+                <button
+                    class="button submit-button"
+                    type="submit">
+                    Войти
+                </button>
+                
+            </form>
+        </section>
+        <div class="registration" id="registration">
+            <p>
+                Впервые здесь?
+                <a href="#registration">
+                    Зарегистрироваться
+                </a>
+            </p>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>© 2026 Форма авторизации</p>
+    </footer>
+</body>
 </html>
