@@ -1,49 +1,172 @@
-body{
-    background-color:rgb(255, 255, 255) ;
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
+    color: #222;
+}
 
+h1,
+p {
+    margin: 16px;
+    text-align: center;
 }
-.main{
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+a {
+    color: #6fbf52;
+    text-decoration: none;
 }
-.card{
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
+
+.header, .footer{
+    padding: 20px 30px;
+    color: #56754d77;
+    text-align: center;
+}
+
+.main {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    width: 15%;
-    height: fit-content;
-    padding: 24px;
-    gap: 9px;
-}
-.outline{
-    border: solid 1.9px white;
-    border-radius: 10px;
-     box-shadow: 8px 8px 20px rgb(82, 102, 191), -8px -8px 20px 
-     rgba(106, 11, 11, 0.7);
-}
-.card-header{
-    padding: 0px;
-    margin: 0px;
-}
-.button{
-width: 100%;
-height: 50%;
-padding: 4%;
-border-radius: 100px;
-color: rgb(88, 88, 89);
-background-color: white;
-}
-.text-center{
-    display: flex;
     align-items: center;
     justify-content: center;
-    padding:5%;
-
-}
-.textbox{
+    gap: 15px;
     padding: 5%;
+}
+
+.card {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    animation:card-appear 0.5s ease;
+}
+@keyframes card-appear {
+    from {
+        opacity: 0;
+        background-color:#ffb8f8;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        background-color: white;
+        transform: translateY(0);
+    }
+}
+.outline {
+    box-shadow: 0 5px 15px rgba(115, 191, 82, 0.8);
+}
+#form-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.button {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #999;
+    border-radius: 100px;
+    background: white;
+    color: #555;
+    font-size: 19px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.button:hover {
+    background: #da5c90;
+    color: white;
+}
+.button:active {
+    transform: scale(0.5);
+}
+.submit-button {
+    background: #da5c90;
+    color: white;
+}
+
+.divider {
+    display:flex;
+    align-items: center;
+    gap: 10px;
+    color: #000000;
+}
+.divider span {
+    flex: 1;
+    height: 1px;
+    background: #ccc;
+}
+
+.textbox {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #999;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+.textbox:focus {
+    outline: none;
+    border-color: #6fbf52;
+    box-shadow: 0 0 5px #6fbf52}
+
+.show-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    border: 0;
+    background: none;
+    color: #cb5687;
+    font-size: 14px;
+    cursor: pointer;
+}
+.show-password[aria-pressed="true"] {
+    text-decoration: underline;
+}
+.password-group {
+    position: relative;
+}
+.forgot-password {
+    align-self: flex-start;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: #cb5687;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #6fbf52;
+    cursor: pointer;
+}
+
+@media (max-width: 320px) {
+    .card {
+        padding: 10px;
+    }
 }
