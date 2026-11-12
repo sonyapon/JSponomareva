@@ -18,7 +18,7 @@ p {
 }
 
 a {
-    color: #6fbf52;
+    color: #3c9438;
     text-decoration: none;
 }
 .visually-hidden {
@@ -31,7 +31,7 @@ a {
 
 .header, .footer{
     padding: 20px 30px;
-    color: #56754d77;
+    color: #3c9438;
     text-align: center;
 }
 
@@ -81,7 +81,7 @@ a {
 .button {
     width: 100%;
     padding: 12px;
-    border: 1px solid #999;
+    border: 1px solid #da5c90;
     border-radius: 100px;
     background: white;
     color: #555;
@@ -110,13 +110,13 @@ a {
 .divider span {
     flex: 1;
     height: 1px;
-    background: #ccc;
+    background: #6fbf52;
 }
 
 .textbox {
     width: 100%;
     padding: 12px;
-    border: 1px solid #999;
+    border: 1px solid #da5c90;
     border-radius: 6px;
     font-size: 16px;
     transition: 0.3s;
@@ -133,12 +133,13 @@ a {
     transform: translateY(-50%);
     border: 0;
     background: none;
-    color: #cb5687;
+    color: #3c9438;
     font-size: 14px;
     cursor: pointer;
 }
 .show-password[aria-pressed="true"] {
-    text-decoration: underline;
+    color: #cb5687;
+    font-style: inherit;
 }
 .password-group {
     position: relative;
@@ -168,5 +169,40 @@ input[type="checkbox"] {
 @media (max-width: 320px) {
     .card {
         padding: 10px;
+    }
+}
+
+.error {
+    color: #730000;
+    animation: my-move 0.6s infinite alternate ease-in-out;
+}
+
+@keyframes my-move {
+    from {
+        transform: scale(1);
+        text-shadow: 4px 4px 3px #6fbf52;
+    }
+
+    to {
+        transform: scale(1.2);
+        
+        text-shadow: 14px 14px 5px #a70000;
+    }
+}
+.success{
+    color: #3c9438;
+    animation: my-move 0.6s infinite alternate ease-in-out;
+}
+
+@keyframes my-move {
+    from {
+        transform: scale(1);
+        text-shadow: 4px 4px 3px #6fbf52;
+    }
+
+    to {
+        transform: scale(1.2);
+        
+        text-shadow: 14px 14px 5px #a70000;
     }
 }
