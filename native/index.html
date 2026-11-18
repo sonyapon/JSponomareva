@@ -43,8 +43,7 @@
                         id="email"
                         name="email"
                         placeholder="Электронная почта или телефон"
-                        autocomplete="username"
-                        required                    >
+                        autocomplete="username">
                 </div>
                 <div class="password-group">
                     <label for="password" class="visually-hidden">
@@ -56,11 +55,7 @@
                         id="password"
                         name="password"
                         placeholder="Пароль"
-                        autocomplete="current-password"
-                        minlength="8"
-                        maxlength="40"
-                        required
-                    >
+                        autocomplete="current-password">
                     <button  aria-pressed="false"
                         class="show-password"
                         type="button"
@@ -83,7 +78,7 @@
                     type="submit">
                     Войти
                 </button>
-                
+                <p id="message" role="status" aria-live="polite"></p>
             </form>
         </section>
         <div class="registration" id="registration">
