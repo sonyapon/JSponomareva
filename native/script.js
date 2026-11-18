@@ -6,13 +6,14 @@ const password = document.querySelector("#password");
 const showPassword = document.querySelector("#show-password");
 const remember = document.querySelector("#remember");
 const message = document.querySelector("#message");
-const  CORRECTeMAIL = "sonya@y.ru"
-const CORRECTpESSWORD = "12345678"
-const savedName = localStorage.getItem("savedEmail");
-if (savedName) {
-    email.value = savedName
+const  CORRECTeMAIL = "s@y.ru";
+const CORRECTpASSWORD = "12345678";
+const savedEmail = localStorage.getItem("savedEmail");
+const submitButton = document.querySelector(".submit-button");
+
+if (savedEmail) {
+    email.value = savedEmail
     remember.checked = true
-    // greeting.textContent = "С возвращением, " + savedName;
 }
 
 showPassword.addEventListener('click', function() {
@@ -29,15 +30,8 @@ showPassword.addEventListener('click', function() {
     
 });
 
-
-const changeColor = (text, type) => {
-    message.textContent = text;
-    message.className = type;
-};
-
-formCard.addEventListener("submit", function (event) {
-
-    event.preventDefault();
+function handleSubmit(event) {
+event.preventDefault();
     if (email.value.trim() ===""){
         changeColor("пустая почта", "error");
       return;
@@ -63,14 +57,57 @@ if (password.value.length<8){
      changeColor("лишком короткий пароль", "error");
   return;
 }
- if (email.value.trim() === CORRECTeMAIL && password.value===CORRECTpESSWORD){
-    changeColor("все вейп", "success")
+ if (email.value.trim() === CORRECTeMAIL && password.value===CORRECTpASSWORD){
+    changeColor("все верно!", "success")
+    createFire()
     if (remember.checked ===true){
-        localStorage.setItem("savedEmail", email.value);
+        localStorage.setItem("savedEmail", email.value.trim());
     }else{
         localStorage.removeItem("savedEmail")
     }
  }else{
     changeColor("Неверная почта или пароль","error")
  }
-});
+}
+
+const changeColor = (text, type) => {
+    message.textContent = text;
+    message.className = type;
+};
+
+formCard.addEventListener("submit", handleSubmit) ;
+
+function runAway(event) {
+    btnMax.style.width = btnMax.offsetWidth + "px";
+    btnMax.style.height = btnMax.offsetHeight + "px";
+    btnMax.style.position = "fixed";
+    
+    const maxX = window.innerWidth - btnMax.offsetWidth;
+    const maxY = window.innerHeight - btnMax.offsetHeight;
+    let x = Math.random() * maxX;
+    let y = Math.random() * maxY;
+    
+    btnMax.style.left = x + "px";
+    btnMax.style.top = y + "px";
+}
+btnMax.addEventListener("mouseenter", runAway);
+btnHse.addEventListener("click", () => changeColor("Вход через ВШЭ пока недоступен", "error"));
+
+function createFire() {
+  const rect = submitButton.getBoundingClientRect();
+
+    for (let i = 0; i < 25; i++) {
+        const fire = document.createElement("div");
+        fire.className = "fire";
+        fire.textContent = "💥";
+        fire.setAttribute("aria-hidden", "true");
+
+        fire.style.left = rect.left + Math.random() * rect.width + "px";
+        fire.style.top = rect.top + "px";
+        fire.style.setProperty("--dx", (Math.random() * 120 - 60) + "px");
+        fire.style.animationDuration = 1 + Math.random() * 1.2 + "s";
+        fire.addEventListener("animationend", () => fire.remove());
+
+        document.body.append(fire);
+    }
+}
